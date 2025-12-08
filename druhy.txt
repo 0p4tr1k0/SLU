@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    enum LAJNA{Top, Jungle, Mid, ADC, Support};
+   
+   struct LOL{
+       string Jmeno, Nickname;
+       LAJNA lajna;
+       int Datum_Pridani;
+   };
+   
+   LOL postavy[20];
+   
+   for ( int i = 0; i <= 14; i ++)
+        postavy[i].lajna = Top ;
+        
+    postavy[15].lajna = Jungle ;
+
+    for ( int i = 16; i < 20; i ++)
+        postavy[i].lajna = Mid;
+        
+    LOL novy = { "Renekton" , "krokodyl" , Top , 2011 }, novy2; // deklarace s inicializaci
+    int pom ;
+    
+    
+    cout << " Zadej jmeno champa: " ;
+    cin >> novy2.Jmeno ;
+    cout << " Zadej Nickname champa: " ;
+    cin >> novy2.Nickname ;
+    cout << "1-Top \n2-Jungle \n3-Mid \n4-ADC \n5-Support \n";
+    cin >> pom ;
+    switch ( pom ) {
+        case 1: novy2.lajna= Top; break;
+        case 2: novy2.lajna= Jungle; break;
+        case 3: novy2.lajna= Mid; break;
+        case 4: novy2.lajna= ADC; break;
+        case 5: novy2.lajna= Support; break;
+        default : novy2.lajna = Mid ;
+    }
+    cout << " Zadej Datum_Pridani: ";
+    cin >> novy2.Datum_Pridani;
+    
+    cout << endl << endl ;
+    cout << " Prvni Champ: \n";
+    cout << " \t Jmeno: " << novy.Jmeno ;
+    cout << " \n \t Lajna: ";
+    switch ( novy.lajna) {
+        case Top: cout << "Top"; break;
+        case Jungle : cout << "Jungle" ; break ;
+        case Mid: cout << "Mid" ;break ;
+        case ADC: cout << "ADC" ;break ;
+        case Support: cout << "Support";
+}
+    cout << " \n \t Vek : " << novy.Datum_Pridani;
+    cout << endl << endl ;
+    cout << " Druhy champ : \n" ;
+    cout << " \t Jmeno : " << novy2.Jmeno ;
+    cout << " \n \t Lajna: ";
+    switch ( novy2.lajna) {
+        case Top: cout << "Top"; break;
+        case Jungle : cout << "Jungle" ; break ;
+        case Mid: cout << "Mid" ;break ;
+        case ADC: cout << "ADC" ;break ;
+        case Support: cout << "Support" ;
+}
+    cout << " \n \t Vek : " << novy.Datum_Pridani;
+
+
+    return 0;
+}
