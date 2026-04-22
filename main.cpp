@@ -6,78 +6,118 @@ C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS
 Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-#include <cstdio>
-#include <string>
-#include <math.h>
 #include <iostream>
-#include <iomanip>
-
+#include <string>
 using namespace std;
 
-int main(void)
+struct Node{
+    string name;
+    int ticketNumber;
+    Node* next;
+    
+    Node(string n, int t) : name(n), ticketNumber(t), next(nullptr) {}
+};
+
+class LinkedList{
+    private:
+        Node* head;
+        
+    public:
+        LinkedList(): head(nullptr) {}
+        
+        bool isEmpty() const {
+            return head == nullptr;
+        }
+        void removeFront(){
+            if(isEmpty()){
+                cout << "Seznam je prazdny. Neni co odebrat." << endl;
+                return;
+            }
+            
+            Node* toDelete = head;
+            head = head->next;
+            delete toDelete;
+            
+            cout << "[Info] Prvni prvek byl smazan." << endl;
+        }
+        void append(string name, int ticket){
+            Node* newNode = new Node(name, ticket);
+            if(isEmpty()){
+                head = newNode;
+                return;
+            }
+            Node* current = head;
+            while(current->next != nullptr){
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+        void printList() const {
+            if(isEmpty()){
+                cout << "Fronta je prazdna." << endl;
+                return;
+            }
+            Node* current = head;
+            cout << "Fronta: ";
+            while(current != nullptr) {
+                cout << "[" << current->name << "(" << current->ticketNumber << ")] ";
+                current = current->next;
+            }
+            cout << endl;
+        }
+        // Ukol 8.2. vymazani objektu podle urciteho data
+        void removeByTicket(int ticket){
+            if(isEmpty()){
+                return;
+            }
+            if(head->ticketNumber == ticket){
+                removeFront();
+                return;
+            }
+            Node* prev = head;
+            Node* current = head->next;
+            while(current->ticketNumber == ticket){
+                prev->next = current->next;
+                delete current;
+                return;
+            }
+            prev = current;
+            current = current->next;
+        }
+        // Ukol 8.3. destruktor
+        ~LinkedList() {
+            while(head != nullptr){
+                Node* nextNode = head->next;
+                delete head;
+                head = nextNode;
+            }
+            cout << "[Destruktor] Seznam uklizen." << endl;
+        }
+};
+
+
+int main()
 {
-    char zn;
-    cout << "dej znak: ";
-    cin >> zn;
+    LinkedList fronta;
     
-    cout << "        "<<zn << endl;
-    cout << "       "<<zn<<" " << zn << endl;
-    cout << "      "<<zn << " "<< zn << " "<< zn << endl;
+    fronta.append("Alice", 1);
+    fronta.append("Bob", 2);
+    fronta.append("Charlie", 3);
     
+    cout << "--- Puvodni fronta ---" << endl;
+    fronta.printList();
+    cout << "Konec bloku se blizi" << endl;
+    cout << "Konec programu" << endl;
     
+    /*cout << "Odebiram Boba (2)" << endl;
+    fronta.removeByTicket(2);
     
-    /*char zn;
-    
-    cout << "dej znak: ";
-    cin >> zn;
-    cout << zn << " " << dec << (int)zn << " " << hex << (int)zn;
-    
-    
+    fronta.removeFront();
     
     
     
-    const float pi = 3.14159265358; // pozor , desetinna tecka , ne carka
-    int mista;
-    
-    cout << pi << endl ;
-    cout << setprecision (2) << pi << endl ; // mate nactenou knihovnu iomanip ?
-    cout << setprecision (3) << pi << endl ; // pokud ne , bude zde chyba
-    cout << setprecision (4) << pi << endl ;
-    cout << setprecision (8) << pi << endl ;
-    cout << "Kolik desetinnych mist ?" ;
-    cin >> mista ;
-    cout << setprecision ( mista ) << pi ;
-    
-    
-	float cislo ;
-	printf ( " Zadej racionalni cislo : " ) ;
-	
-	fflush ( NULL ) ;
-	scanf ( " %f", & cislo ) ;
-	
-	int cele = cislo ; // odstranime desetinnou cast
-	
-	printf ("Cela cast :\t %02d, resp . %02d\n",(int) cislo, cele);
-	printf ("Realna cast :\t %4.2f\n", cislo-cele );
-	printf ("Zaokrouhleno :\t %4.2f", round(cislo));
+    cout << "--- Konecna fronta ---" << endl;
+    fronta.printList();*/
 
-	printf("Dopravni prostredek \tVlastnik \tVek\n");
-	printf("auto Jeep \t\ttata \t\t4 \nauto Opel \t\tmama \t\t5 \nauto Citroen \t\tbabicka \t12 \nkolo \t\t\ttata \t\t7 \nkolo \t\t\tMartin \t\t7 \nkolo \t\t\tMartin \t\t7 \nkolo \t\t\tJana \t\t6 \nkolobezka \t\tJana \t\t8");
-
-	printf ("Diagonala:\n             x o o \n             o x o \n             o o x ");
-	char c;
-	float n = 8.259035;
-
-	printf("%f\n", n);
-	printf("%2.4f\n", n);
-	printf("%2.2f\n", n);
-
-	printf("dej znak pls: ");
-	char c;
-
-	scanf("%c", &c);
-
-	printf("znak %c je hodnota %d, a hexa %X" ,c,c,c);*/
-
-	return 0;
+    return 0;
 }
