@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Patrik">
+<meta name="keywords" content="Patrik, student, o autorovi, programování, hry, League of Legends, životní prostředí, prezentace">
+<meta name="description" content="Osobní stránka o autorovi Patrikovi — studentovi se zájmem o programování, tvorbu prezentací a environmentální témata.">
+<title>O autorovi</title>
+<style>
+  :root{
+    --bg: #f6f1ea;
+    --bg-soft: #fbf8f4;
+    --text: #40372f;
+    --text-soft: #6d6055;
+    --accent: #b98868;
+    --accent-soft: #e9c9a8;
+    --border: #d8c3ad;
+    --card-bg: #fffdfa;
+    --nav-bg: #e7d9c8;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Georgia", "Iowan Old Style", serif;
+    line-height: 1.65;
+  }
+
+  header.hlavicka{
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft));
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header.hlavicka h1{
+    margin: 0 0 0.4rem;
+    font-size: 2.2rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+
+  header.hlavicka p{
+    margin: 0;
+    color: var(--text-soft);
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+
+  nav{
+    background: var(--nav-bg);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.9rem 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav a{
+    color: var(--text);
+    text-decoration: none;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.95rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  nav a:hover{
+    background: var(--accent);
+    color: #fff;
+  }
+
+  main{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.2rem 1.5rem 1rem;
+  }
+
+  article{
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 4px 14px rgba(90, 70, 50, 0.06);
+  }
+
+  article h2{
+    margin-top: 0;
+    color: var(--accent);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 1.35rem;
+    border-bottom: 2px solid var(--accent-soft);
+    padding-bottom: 0.4rem;
+  }
+
+  article p{
+    margin: 0.7rem 0;
+    color: var(--text);
+  }
+
+  .zvyrazneno{
+    background: var(--bg-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    margin: 1rem 0;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+  }
+
+  ul.zajmy{
+    list-style: none;
+    padding: 0;
+    margin: 0.8rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  ul.zajmy li{
+    background: var(--accent-soft);
+    color: var(--text);
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-family: "Trebuchet MS", sans-serif;
+  }
+
+  footer{
+    text-align: center;
+    padding: 1.5rem 1rem 2rem;
+    color: var(--text-soft);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    background: var(--bg-soft);
+  }
+
+  footer p{ margin: 0.2rem 0; }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #241f1a;
+      --bg-soft: #2c2620;
+      --text: #ece3d8;
+      --text-soft: #c2b3a1;
+      --accent: #d3a37c;
+      --accent-soft: #4a3c2d;
+      --border: #4a3c2d;
+      --card-bg: #2c2620;
+      --nav-bg: #33291f;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="hlavicka">
+  <h1>Patrik</h1>
+  <p>Student &middot; programátor &middot; tvůrce prezentací</p>
+</header>
+
+<nav>
+  <a href="#o-mne">O mně</a>
+  <a href="#zajmy-a-prace">Zájmy a práce</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<main>
+
+  <article id="o-mne">
+    <h2>O mně</h2>
+    <p>
+      Jmenuji se Patrik a jsem student, kterého baví spojovat technické
+      dovednosti s výtvarnou a prezentační stránkou práce. Ať už jde
+      o řešení algoritmického úkolu, nebo o návrh vizuálně sladěné
+      prezentace, snažím se, aby výsledek byl nejen funkční, ale
+      i příjemný na pohled.
+    </p>
+    <div class="zvyrazneno">
+      Studium mě naučilo pracovat se strukturou, formátováním a přesností —
+      ať už jde o kód, nebo o slidy pro veřejné vystoupení.
+    </div>
+    <p>
+      Rád se učím nové postupy a nebojím se experimentovat s formou,
+      barvami a vizuálním stylem jednotlivých projektů.
+    </p>
+  </article>
+
+  <article id="zajmy-a-prace">
+    <h2>Zájmy a nedávná práce</h2>
+    <p>
+      Mezi mé zájmy patří hraní her, zejména League of Legends,
+      a zároveň mě zajímají environmentální témata a udržitelnost.
+      Tyto zájmy se občas promítají i do školních projektů.
+    </p>
+    <ul class="zajmy">
+      <li>League of Legends</li>
+      <li>Životní prostředí</li>
+      <li>Programování</li>
+      <li>Tvorba prezentací</li>
+      <li>Vizuální design</li>
+    </ul>
+    <p>
+      Naposledy jsem pracoval na prezentaci zaměřené na obnovitelnou energii,
+      na konceptu aplikace pro sledování uhlíkové stopy a na tematické
+      prezentaci inspirované hrou League of Legends.
+    </p>
+  </article>
+
+</main>
+
+<footer id="kontakt">
+  <p>&copy; 2026 Patrik &mdash; osobní stránka o autorovi</p>
+  <p>Vytvořeno pro školní účely</p>
+</footer>
+
+</body>
+</html>
